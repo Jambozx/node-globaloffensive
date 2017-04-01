@@ -128,7 +128,16 @@ GlobalOffensive.prototype._connect = function() {
 	}
 
 };
-
+GlobalOffensive.prototype.reConnect = function() {
+	this._isInCSGO = false;
+	this._hadGCSession = this.haveGCSession;
+	if(this.haveGCSession) {
+		this.emit('disconnectedFromGC', GlobalOffensive.GCConnectionStatus.NO_SESSION);
+		this.haveGCSession = false;
+	}
+	clearTimeout(self._helloTimer);
+	this._connect();
+};
 GlobalOffensive.prototype._send = function(type, protobuf, body) {
 	if(!this._steam.loggedOn) {
 		return false;
