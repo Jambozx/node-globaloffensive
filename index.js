@@ -135,7 +135,7 @@ GlobalOffensive.prototype.reConnect = function() {
 		this.emit('disconnectedFromGC', GlobalOffensive.GCConnectionStatus.NO_SESSION);
 		this.haveGCSession = false;
 	}
-	clearTimeout(self._helloTimer);
+	clearTimeout(this._helloTimer);
 	this._connect();
 };
 GlobalOffensive.prototype._send = function(type, protobuf, body) {
