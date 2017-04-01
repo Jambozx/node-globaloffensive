@@ -129,7 +129,6 @@ GlobalOffensive.prototype._connect = function() {
 
 };
 GlobalOffensive.prototype.reConnect = function() {
-	this._isInCSGO = false;
 	this._hadGCSession = this.haveGCSession;
 	if(this.haveGCSession) {
 		this.emit('disconnectedFromGC', GlobalOffensive.GCConnectionStatus.NO_SESSION);
